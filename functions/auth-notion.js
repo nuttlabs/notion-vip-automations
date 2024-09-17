@@ -1,6 +1,8 @@
 export function onRequest(context) {
 
-    return new Response("Go.");
+    let message = "Go!";
+
+    return new Response(message);
 
 }
 
