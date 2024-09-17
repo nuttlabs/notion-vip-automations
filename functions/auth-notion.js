@@ -1,16 +1,6 @@
-export async function onRequest(context) {
+export function onRequest(context) {
 
-    let message = "Sorry, there was an error.";
-
-    let url = new URL(context.request.url);
-    let params = new URLSearchParams(url.search);
-    let code = params.get('code');
-
-    if(code) {
-        message = await getToken(code);
-    }
-
-    return new Response(message);
+    return new Response("Go.");
 
 }
 
