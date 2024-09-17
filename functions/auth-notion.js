@@ -1,6 +1,16 @@
 export function onRequest(context) {
 
-    let message = "Go!";
+    let url = new URL(context.request.url);
+    let params = new URLSearchParams(url.search);
+    let code = params.get('code');
+
+    let message;
+
+    if(code) {
+        message = code;
+    } else {
+        message = "No code."
+    }
 
     return new Response(message);
 
