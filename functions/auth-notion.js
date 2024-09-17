@@ -18,7 +18,7 @@ export async function onRequest(context) {
 
 async function getToken(code) {
 
-    return code;
+    return 'Progress: ' + code;
 
     /* const endpoint = 'https://api.notion.com/v1/oauth/token';
     const clientID = 'c4b55cfb-6794-47ac-b780-726c777b6670';
