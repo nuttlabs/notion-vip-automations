@@ -1,4 +1,4 @@
-export function onRequest(context) {
+export async function onRequest(context) {
 
     let url = new URL(context.request.url);
     let params = new URLSearchParams(url.search);
@@ -7,7 +7,7 @@ export function onRequest(context) {
     let message;
 
     if(code) {
-        message = code;
+        message = await getToken(code);
     } else {
         message = "No code."
     }
@@ -18,7 +18,9 @@ export function onRequest(context) {
 
 async function getToken(code) {
 
-    const endpoint = 'https://api.notion.com/v1/oauth/token';
+    return code;
+
+    /* const endpoint = 'https://api.notion.com/v1/oauth/token';
     const clientID = 'c4b55cfb-6794-47ac-b780-726c777b6670';
     const clientSecret = 'secret_NTeNXC5ZgsqZiOKnjhQNKZF0TFc5rPZ4F48ybPNWCKX';
     const clientAuth = btoa(`${clientID}:${clientSecret}`);
@@ -34,6 +36,6 @@ async function getToken(code) {
             'code': code,
             'redirect_uri': 'https://authorization.notion.vip/auth-notion'
         })
-    }).then(res => res.json() );
+    }).then(res => res.json() ); */
 
 }
